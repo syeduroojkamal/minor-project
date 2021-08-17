@@ -1,1 +1,2 @@
 - Made a 2 web pages for frontend. (done)
+- Clone this repo and push anything.
