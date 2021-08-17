@@ -1,0 +1,1 @@
+- Made a 2 web pages for frontend. (done)
