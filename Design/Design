@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-10-02T06:48:59.605Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36" etag="RB7vGr1iUvRk6fa8w5ID" version="15.4.1" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2021-10-02T06:49:39.033Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36" etag="5EhoHlbggWiAcBGPQlh4" version="15.4.1" type="github" pages="5">
   <diagram id="RsqJ2L5GWaceqBMa1oMN" name="Dashboard">
-    <mxGraphModel dx="868" dy="493" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1662" dy="805" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -69,9 +69,6 @@
         </mxCell>
         <mxCell id="-zI02Tw2x8Ws5lId5HFe-22" value="Footer" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="1" vertex="1">
           <mxGeometry x="40" y="730" width="750" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="jsiXXNdGfBvBdbmyrp4d-1" value="Ha bhai kar diya edit" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="260" y="1080" width="430" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
