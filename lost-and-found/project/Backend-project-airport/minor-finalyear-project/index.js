@@ -28,7 +28,11 @@ const adminSchema = new mongoose.Schema({
 });
 
 const Admin = new mongoose.model('admin',adminSchema);
-
+const user = new Admin({
+  username : 'syed',
+  password : 'syed'
+})
+user.save(); 
 var error = '';
 
 app.get('/', (req, res) => {
