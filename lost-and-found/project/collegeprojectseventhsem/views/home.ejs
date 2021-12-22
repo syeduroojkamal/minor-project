@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+      .home-header {
+  background-color: #160040;
+  color: #fff;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+body {
+  background-color: #EDD2F3;
+}
+
+.filter-nav {
+  background-color: maroon;
+  color: #fff;
+  padding: 15px 5px;
+}
+
+.find-button-col {
+  padding-top: 36px;
+}
+
+.find-button {
+  background-color: #090910;
+  color: #fff;
+}
+
+form label {
+  font-size: 1.2rem;
+}
+
+table {
+  border : 1px solid #090910;
+}
+thead {
+  text-align: center;
+}
+
+ td {
+  border-left : 1px solid #090910;
+}
+
+#no-data {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: darkred;
+  text-align: center;
+  padding-top: 20px;
+}
+
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- ******NAVBAR******* -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#"><img src="logo1.png" width="50px" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/guidelines">Guidelines<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+              </li>
+
+          </ul>
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Log in</a>
+              </li>
+          </ul>
+
+        </div>
+      </nav>
+
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col pl-4 home-header">
+            <h1 class="display-4">Lost And Found Department Airport</h1>
+            <p class="lead"></p>
+            <h5>If you have lost any of your valuable at the airport only, Then you can find your lost items from here.</h5>
+          </div>
+          <div class="col-md-12">
+            <form action="/" method="post">
+              <div class="row filter-nav">
+    
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="inputdate">Select Date</label>
+                    <input type="date" name="searchdate" class="form-control" id="inputdate">
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="terminal"> Select Terminal</label>
+                    <select name="terminal" class="form-control">
+                      <option>T1</option>
+                      <option>T2</option>
+                      <option>T3</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-3 find-button-col">
+                  <button type="submit" class="btn btn-dark">Find</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col mt-4">
+          <% if(locals.Lostitems == undefined) {%>
+            <div></div> 
+
+          <%}else{%> 
+            <% if(locals.Lostitems == '') {%>
+              <div id="no-data">
+                  <h4>No Lost Item Found !</h4>
+              </div>
+            <%}else{%>
+            <table class="table table-bordered">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Lost Date</th>
+                  <th scope="col">Terminal</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Details</th>
+                </tr>
+              </thead>
+                <tbody>
+                  <% Lostitems.forEach(function (item) { %>
+                    <tr>  
+                        <td><%= item.lostdate %></td>  
+                        <td><%= item.terminal %></td>
+                        <td><%= item.category %></td>
+                        <td><%= item.details %></td>
+                    </tr>                                   
+                  <% }) %>
+                   
+                  
+                  </tbody>
+            </table>
+          <%}%>
+          <%}%>
+
+          </div>
+        </div>
+      </div>
+    
+      </div>
+</body>
+</html>

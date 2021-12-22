@@ -1,0 +1,159 @@
+<html lang="en">
+
+<head>
+    <title>Admin Dashboard</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <style> 
+    .link-admin-updates {
+      text-align: center;
+    }
+    
+    .link-admin-updates button {
+      font-size: 1.2rem;
+    }
+    
+    .admin-update-form {
+      width: fit-content;
+      margin : 0 auto 0 auto;
+    }
+    
+    .admin-update-form a {
+      color : #fff;
+    }
+    
+    .admin-nav{
+      border-right: 2px solid #fff;
+      padding : 20px 0;
+      background-color:#082032;
+    }
+  </style>
+  </head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"><img src="logo1.png" width="50px" alt=""></a>
+    
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a href="/logout" class="btn btn-danger">Log out</a>
+          </li>
+      </ul>
+     
+    </div>
+  </nav>
+    <div class="jumbotron jumbotron-fluid mb-0">
+        <div class="container">
+          <h1 class="display-4">Admin Dashboard</h1>
+          <p class="lead">Using it you can manage items like add and remove</p>
+        </div>
+      </div>
+      <div class="container-fluid admin-container">
+       
+        <div class="row">
+          <div class="col-md-4 admin-nav link-admin-updates">
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Additemmodal">Add Item</button>
+          </div>
+          <div class="col-md-4 admin-nav link-admin-updates">
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Remove Item</button>
+          </div>
+          <div class="col-md-4 admin-nav form-col">
+            <form action="" class="form-inline admin-update-form">
+              <div class="form-group">
+                <input type="text" class="form-control mr-4" id="searchitem" placeholder="Search Items">       
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Search"> 
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="Additemmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add Item</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="/additem" method="post">
+                <div class="form-group">
+                  <label for="terminal">Choose Terminal</label>
+                  <select name="terminal" class="form-control">
+                    <option>T1</option>
+                    <option>T2</option>
+                    <option>T3</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="category">Item Category</label>
+                  <select name="itemcategory" class="form-control">
+                    <option>Curreny</option>
+                    <option>Electronic Devices</option>
+                    <option>General Items</option>
+                    <option>Laptop</option>
+                    <option>Luggage</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="item-date">Date</label>
+                  <input type="date" name="lostdate" class="form-control" id="itemdate">
+                </div>
+                <div class="form-group">
+                  <label for="item-details">Item Details</label>
+                  <textarea class="form-control" id="itemdetail" name="detailitem" rows="5">
+                  </textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Add</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Remove Item</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="/removeitem" method="post">
+                <div class="form-group">
+                  <label for="removedate">Item Date</label>
+                  <input type="date" name="dateofadd" class="form-control" id="exampleInputitemid1">
+                </div>
+                <button type="submit" class="btn btn-primary">Remove</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+      <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+   -->
+</body>
+    
+</html>
